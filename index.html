@@ -228,11 +228,19 @@
 		</style>
 	</section>
 
+	<section class="slide" id="problems">
+		<h2 class="shout shrink">Боль?</h2>
+        <style>
 
+            #problems {
+                background-color: black;
+            }
 
-
-
-
+            #problems h2 {
+                color: white !important;
+            }
+        </style>
+	</section>
 
 
 	<section class="slide scheme-0" id="second">
@@ -261,9 +269,6 @@
             }
         </style>
     </section>
-
-
-
 
 
 
@@ -309,6 +314,20 @@
 
 		</style>
 	</section>
+
+
+
+
+	<section class="slide scheme-0" id="fight">
+        <img class="cover" src="pictures/drafts/fight-club.jpg" alt="Orange typewriter on a wooden table close-up">
+
+        <style type="text/css" media="screen">
+            #fight {
+                background-color: black;
+                    
+            }
+        </style>
+    </section>
 
 
 
@@ -1477,21 +1496,6 @@
         </style>
 	</section>
 
-	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
-		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
-	</section>
 
 	<section class="slide" id="code-0">
 		<h2>Серверный рендеринг</h2>
@@ -1554,7 +1558,7 @@
 
 
 	<section class="slide" id="code-0">
-		<h2>WEB Server + Серверный рендеринг</h2>
+        <h2><mark>WEB Server</mark> + Серверный рендеринг</h2>
 		<pre class="code">
             <code class="mark"> express.get('*', (req, <mark class="important">res</mark>) =&gt; {</code>
             <div class="next">
@@ -1579,7 +1583,7 @@
 
 
 	<section class="slide" id="code-0">
-		<h2>WEB Server + Серверный рендеринг</h2>
+        <h2><mark>WEB Server</mark> + Серверный рендеринг</h2>
 		<pre class="code">
             <code class="mark"> express.get('*', (req, <mark class="important">res</mark>) =&gt; {</code>
             <code>    const app = new Vue({ ... })</code>
@@ -1603,112 +1607,635 @@
 	</section>
 
 
-  
+	<section class="slide" id="code-1">
+		<h2>/server.js</h2>
+		<pre class="code">
+            <code class="next">const createApp = require('./app')</code>
+            <code>express.get('*', (req, <mark class="important">res</mark>) =&gt; {</code>
+            <code>    context = { url: req.url }</code>
+            <code class="strike">    const app = createApp(context)</code>
 
+            <div>
+                <code> </code>
+                <code class="mark">    renderer.renderToString(<mark>app</mark>,<span class="strike">context</span> (err, html) => {</code>
+                <code>         res.end(html)</code>
+                <code><span class="comment">       // BROWSER:=&gt; &lt;div data-server-rendered="true"&gt;hello world &lt;div&gt;</span></code>
+                <code>    })</code>
+            </div>
 
+            <code>})</code>
+		</pre>
 
+        <style>
+            #code-1 .code {
+                font-size: 17px;
+            }
 
-
-
-
-<!-- // Шаг 1: Создаём экземпляр Vue -->
-<!-- const Vue = require('vue') -->
-<!-- const app = new Vue({ -->
-<!--   template: `<div>Hello World</div>` -->
-<!-- }) -->
-<!--  -->
-<!-- // Шаг 2: Создаём рендерер -->
-
-<!--  -->
-<!-- // Шаг 3: Рендерим экземпляр Vue в HTML -->
-<!-- renderer.renderToString(app, (err, html) => { -->
-<!--   if (err) throw err -->
-<!--   console.log(html) -->
-<!--   // => <div data&#45;server&#45;rendered="true">hello world</div> -->
-<!-- }) -->
-
-
-
-
-
-
-	<section class="slide">
-		<h2>Serious citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
+            #code-1 .strike {
+                text-decoration: line-through
+            }
+        </style>
 	</section>
 
 
-	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
+
+	<section class="slide" id="code-3">
+        <h2> server-client.js | entry-client.js</em></h2>
+
+        <pre class="code appjs">
+            <code class="mark">// app.js</code>
+            <code>const Vue = require('vue')</code>
+
+            <code>module.exports = function createApp (context) {</code>
+            <code>    return new Vue({</code>
+            <code>        data: {</code>
+            <code>            url: context.url</code>
+            <code>       },</code>
+            <code>       template: `&lt;div id="app" data-server-rendered="true"&gt;Вы открыли URL: {{ url }}&lt;/div&gt;`</code>
+            <code>    })</code>
+            <code>}</code>
+        </pre>
+
+
+        <div class="container server-container">
+            <pre class="code">
+                <code class="comment mark">// server.js</code>
+                <code> </code>
+                <code>const { <mark>createApp</mark> } = require('./app.js');</code>
+                <code> </code>
+
+                <code>server.get('*', (req, res) =&gt {</code>
+                <code>    const context = { url: req.url }</code>
+                <code>    createApp(context).then(app =&gt; {</code>
+                <code>        renderer.renderToString(app, (err, html) =&gt; {</code>
+                <code>            res.end(html)</code>
+                <code>        }</code>
+                <code>})</code>
+            </pre>
+
+
+        </div><div class="container client-container">
+            <pre class="code">
+                <code class="comment mark">// client.js</code>
+                <code><span class="comment">// Специфичная для клиента логика загрузки...</span></code>
+                <code class="">import { <mark>createApp</mark> } from './app'</code>
+                <code>app.$mount('#app')</code>
+            </pre>
+
+            <div class="hydrate">
+                <h3>Гидратация верстки</h3>
+                <pre class="code">
+                    <code>&lt;div id="app" <mark class="important"> data-server-rendered="true"&gt;</mark></code>
+                </pre>
+            </div>
+
+
+        </div>
+
+
+
+        <style>
+            #code-3 .code.appjs {
+                display: none;
+                font-size: 8px;
+            }
+
+            #code-3 .code {
+                font-size: 10px;
+            }
+
+            #code-3 .strike {
+                text-decoration: line-through
+            }
+
+            #code-3 .container {
+                vertical-align: top;
+                overflow: hidden;
+                display: inline-block;
+                width: 45%;
+            }
+
+            #code-3 .server-container {
+                margin-right: 35px;
+            }
+
+            #code-3 .hydrate {
+                margin-top: 40px;
+            }
+        </style>
 	</section>
 
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<figure>
-			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
+
+
+
+	<section class="slide" id="code-4">
+        <h2> server-client.js | entry-client.js</em></h2>
+
+        <pre class="code appjs">
+            <code class="mark">// app.js</code>
+            <code>const Vue = require('vue')</code>
+
+            <code>module.exports = function createApp (context) {</code>
+            <code>    return new Vue({</code>
+            <code>        data: {</code>
+            <code>            url: context.url</code>
+            <code>       },</code>
+            <code>       template: `&lt;div id="app" data-server-rendered="true"&gt;Вы открыли URL: {{ url }}&lt;/div&gt;`</code>
+            <code>    })</code>
+            <code>}</code>
+        </pre>
+
+
+        <div class="container server-container">
+            <pre class="code">
+                <code class="comment mark">// server.js</code>
+                <code> </code>
+                <code>const { <mark>createApp</mark> } = require('./app.js');</code>
+                <code> </code>
+
+                <code>server.get('*', (req, res) =&gt {</code>
+                <code>    const context = { url: req.url }</code>
+                <code>    createApp(context).then(app =&gt; {</code>
+                <code>        renderer.renderToString(app, (err, html) =&gt; {</code>
+                <code>            res.end(html)</code>
+                <code>        }</code>
+                <code>})</code>
+            </pre>
+
+
+        </div><div class="container client-container">
+            <pre class="code">
+                <code class="comment mark">// client.js</code>
+                <code><span class="comment">// Специфичная для клиента логика загрузки...</span></code>
+                <code class="">import { <mark>createApp</mark> } from './app'</code>
+                <code>app.$mount('#app')</code>
+            </pre>
+
+            <div class="hydrate">
+                <h3>Гидратация верстки</h3>
+                <pre class="code">
+                    <code>&lt;div id="app" <mark class="important"> data-server-rendered="true"&gt;</mark></code>
+                </pre>
+            </div>
+
+
+        </div>
+
+
+
+        <style>
+            #code-4 .code.appjs {
+                font-size: 8px;
+            }
+
+            #code-4 .code {
+                font-size: 10px;
+            }
+
+            #code-4 .strike {
+                text-decoration: line-through
+            }
+
+            #code-4 .container {
+                vertical-align: top;
+                overflow: hidden;
+                display: inline-block;
+                width: 45%;
+            }
+
+            #code-4 .server-container {
+                margin-right: 35px;
+            }
+
+            #code-4 .hydrate {
+                margin-top: 40px;
+            }
+        </style>
+	</section>
+
+	<section class="slide" id="code-5">
+        <h2> Типовая структура </h2>
+        <div class="code-structure">
+            <div> src</div>
+            <div> ├── components </div>
+            <div> │   ├── Foo.vue</div>
+            <div> │   ├── Bar.vue</div>
+            <div> │   └── Baz.vue</div>
+            <div> ├── App.vue</div>
+            <div> ├── <span style="background-color: #33ffff">app.js</span> <span class="comment"># универсальная точка входа</span></div>
+            <div> ├── entry-client.js <span class="comment"># запускается только в браузере</span></div>
+            <div> └── entry-server.js <span class="comment"># запускается только на сервере</span></div>
+        </div>
+        <style>
+            .code-structure {
+                line-height: 20px;
+                font-size: 20px;
+            }
+
+            .code-structure .comment {
+                color: #aaa;
+            }
+        </style>
+    </section>
+
+
+
+	<section class="slide" id="code-5">
+        <h2> server-client.js | entry-client.js</em></h2>
+
+        <div class="container server-container">
+            <pre class="code">
+                <code class="comment mark">// server.js</code>
+                <code> </code>
+                <code>const { <mark>createApp</mark> } = require('./app.js');</code>
+                <code> </code>
+
+                <code>server.get('*', (req, res) =&gt {</code>
+                <code>    const context = { url: req.url }</code>
+                <code>    createApp(context).then(app =&gt; {</code>
+                <code>        renderer.renderToString(app, (err, html) =&gt; {</code>
+                <code>            res.end(html)</code>
+                <code>        }</code>
+                <code>})</code>
+            </pre>
+
+
+        </div><div class="container client-container">
+            <pre class="code">
+                <code class="comment mark">// client.js</code>
+                <code><span class="comment">// Специфичная для клиента логика загрузки...</span></code>
+                <code class="">import { <mark>createApp</mark> } from './app'</code>
+                <code>app.$mount('#app')</code>
+            </pre>
+
+            <div class="hydrate">
+                <h3>Гидратация верстки</h3>
+                <pre class="code">
+                    <code>&lt;div id="app" <mark class="important"> data-server-rendered="true"&gt;</mark></code>
+                </pre>
+            </div>
+
+
+        </div>
+
+
+
+        <style>
+            #code-5 .code.appjs {
+                display: none;
+                font-size: 8px;
+            }
+
+            #code-5 .code {
+                font-size: 10px;
+            }
+
+            #code-5 .strike {
+                text-decoration: line-through
+            }
+
+            #code-5 .container {
+                vertical-align: top;
+                overflow: hidden;
+                display: inline-block;
+                width: 45%;
+            }
+
+            #code-5 .server-container {
+                margin-right: 35px;
+            }
+
+            #code-5 .hydrate {
+                margin-top: 40px;
+            }
+        </style>
+	</section>
+
+	<section class="slide" id="code-5">
+        <img class="cover" src="pictures/drafts/structure.png" alt="Orange typewriter on a wooden table close-up">
+    </section>
+
+
+
+	<section class="slide grid" id="eight">
+        <div class="container">
+            <h2>History</h2>
+            <img class="developer-img" src="pictures/drafts/feDev.png" alt="Orange typewriter on a wooden table close-up">
+
+            <div class="evolution">
+                <li class="evolution-item"> Research      </li>
+                <li class="evolution-item _active">
+                    <p>SSR</p>
+                    <div class="small">
+                        <p class="small">Vue</p>
+                        <p class="small">vue-ssr-render</p>
+                        <p class="small">vue-router</p>
+                        <p class="small">vuex</p>
+                        <p class="small">webpack</p>
+                    </div>
+                </li>
+                <li class="evolution-item"> NUXT          </li>
+                <li class="evolution-item"> EXPRESS + NUXT</li>
+                <li class="evolution-item"> ROUTING + DB  </li>
+                <li class="evolution-item"> ADONIS        </li>
+                <li class="evolution-item"> RENDER        </li>
+            </div>
+
+            <div class="evolution-figure">
+                <img class="evolution" src="pictures/drafts/evolution.png" alt="Orange typewriter on a wooden table close-up">
+            </div>
+        </div>
+
+
+
+
+        <style>
+            #eight .container {
+                position: relative;
+            }
+
+            #eight .developer-img {
+                position: absolute;
+                left: 23px;
+                top: 64px;
+                width: 80px;
+            }
+
+            #eight .evolution-figure{
+                text-align: center;
+                opacity: .5;
+            }
+
+            #eight .evolution-item {
+                display: inline-block;
+                width: 105px;
+                margin: 1px;
+                background-color: #3fb468;
+                text-align: center;
+                padding: 5px;
+                font-size: 22px;
+            }
+
+            #eight .evolution-item:not(._active) {
+                opacity: .5;
+            }
+
+            #eight .small {
+                font-size: 12px;
+            }
+        </style>
+	</section>
+
+
+	<section class="slide grid" id="ninth">
+        <div class="container">
+            <h2>History</h2>
+            <img class="developer-img" src="pictures/drafts/feDev.png" alt="Orange typewriter on a wooden table close-up">
+
+            <div class="evolution">
+                <li class="evolution-item"> Research      </li>
+                <li class="evolution-item">
+                    <p>SSR</p>
+                    <div class="small">
+                        <p class="small">Vue</p>
+                        <p class="small">vue-ssr-render</p>
+                        <p class="small">vue-router</p>
+                        <p class="small">vuex</p>
+                        <p class="small">webpack</p>
+                    </div>
+                </li>
+                <li class="evolution-item _active"> NUXT          </li>
+                <li class="evolution-item"> EXPRESS + NUXT</li>
+                <li class="evolution-item"> ROUTING + DB  </li>
+                <li class="evolution-item"> ADONIS        </li>
+                <li class="evolution-item"> RENDER        </li>
+            </div>
+
+            <div class="evolution-figure">
+                <img class="evolution" src="pictures/drafts/evolution.png" alt="Orange typewriter on a wooden table close-up">
+            </div>
+        </div>
+
+
+
+
+        <style>
+            #ninth .container {
+                position: relative;
+            }
+
+            #ninth .developer-img {
+                position: absolute;
+                left: 23px;
+                top: 64px;
+                width: 80px;
+            }
+
+            #ninth .evolution-figure{
+                text-align: center;
+                opacity: .5;
+            }
+
+            #ninth .evolution-item {
+                display: inline-block;
+                width: 105px;
+                margin: 1px;
+                background-color: #3fb468;
+                text-align: center;
+                padding: 5px;
+                font-size: 22px;
+            }
+
+            #ninth .evolution-item:not(._active) {
+                opacity: .5;
+            }
+
+            #ninth .small {
+                font-size: 12px;
+            }
+        </style>
+	</section>
+
+
+	<section class="slide grid" id="ten">
+        <div class="container">
+            <h2>NUXT решение</h2>
+
+            <img class="nuxt cover" src="pictures/drafts/nuxt.png" alt="Orange typewriter on a wooden table close-up">
+
+            <pre class="code">
+                <code><span class="comment">// NUXT</span></code>
+                <code class="next">const { Nuxt, Builder } = require('nuxt')</code>
+                <code class="next">const nuxtConfig = require('./nuxt.config.js')</code>
+
+                <code class="next"><span class="comment">// NUXT instance</span></code>
+                <code class="next">nuxt = new Nuxt(nuxtConfig)</code>
+
+                <code class="next">renderString = nuxt.render<code>
+            </pre>
+
+        <style type="text/css" media="screen">
+            .nuxt.cover {
+                opacity: .5;
+            } 
+        </style>
+    </section>
+
+
+
+
+	<section class="slide scheme-0 nuxt" id="first">
+        <div class="underlay"></div>
+
+        <div class="container">
+            <div class="container-left next">
+                <div class="container-inner">
+                    <section class="content-area">
+                        <div class="code-wrapper">
+                            <pre class="code">
+                                <code class="mark"><span class="comment">//NUXT like server</code>
+                                <code>nuxt(app) {</code>
+                                <code></code>
+                                <code>}</code>
+                            </pre>
+                        </div>
+                    </section>
+                </div>
+            </div><div class="container-right next">
+                <div class="container-inner">
+                    <section class="content-area">
+                        <div class="code-wrapper">
+                            <pre class="code">
+                                <code class="mark"><span class="comment">//NUXT like middleware</code>
+                                <code>const app = require('express')()</code>
+                                <code> </code>
+                                <code>const start = async function () {</code>
+                                <code>   const contentfulDB = await getDB()</code>
+                                <code> </code>
+                                <code>   app.use('*', Router);</code>
+                                <code>   app.use(nuxt.render);</code>
+                                <code>   </code>
+                                <code>}</code>
+                            </pre>
+                        </div>
+                    </section>
+                </div>
+        </div>
+            
+        </div>
 		<style>
-			#picture h2 {
-				color:#FFF;
-				}
-		</style>
+            .nuxt.scheme-0 .underlay {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                background: url('pictures/drafts/stone.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .nuxt.scheme-0 .code {
+                font-size: 14px;
+            }
+
+            .nuxt.scheme-0 .container-left .content-area {
+                background-color: rgba(255, 247, 185, 0.97);
+                width: 80%;
+            }
+
+            .nuxt.scheme-0 .container-right .content-area {
+                background-color: rgba(255, 247, 185, 0.97);
+                width: 90%;
+            }
+
+            .nuxt.scheme-0 .container-right .content-area {
+                vertical-align: top;
+            }
+
+            .nuxt.scheme-0 .code-wrapper {
+                padding-left: 60px;
+            }
+
+        </style>
+    </section>
+
+
+
+	<section class="slide grid" id="sto">
+        <div class="container">
+            <h2>History</h2>
+            <img class="developer-img" src="pictures/drafts/feDev.png" alt="Orange typewriter on a wooden table close-up">
+
+            <div class="evolution">
+                <li class="evolution-item"> Research      </li>
+                <li class="evolution-item">
+                    <p>SSR</p>
+                    <div class="small">
+                        <p class="small">Vue</p>
+                        <p class="small">vue-ssr-render</p>
+                        <p class="small">vue-router</p>
+                        <p class="small">vuex</p>
+                        <p class="small">webpack</p>
+                    </div>
+                </li>
+                <li class="evolution-item _active"> NUXT          </li>
+                <li class="evolution-item"> EXPRESS + NUXT</li>
+                <li class="evolution-item"> ROUTING + DB  </li>
+                <li class="evolution-item"> ADONIS        </li>
+                <li class="evolution-item"> RENDER        </li>
+            </div>
+
+            <div class="evolution-figure">
+                <img class="evolution" src="pictures/drafts/evolution.png" alt="Orange typewriter on a wooden table close-up">
+            </div>
+        </div>
+
+
+
+
+        <style>
+            #sto .container {
+                position: relative;
+            }
+
+            #sto .developer-img {
+                position: absolute;
+                left: 23px;
+                top: 64px;
+                width: 80px;
+            }
+
+            #sto .evolution-figure{
+                text-align: center;
+                opacity: .5;
+            }
+
+            #sto .evolution-item {
+                display: inline-block;
+                width: 105px;
+                margin: 1px;
+                background-color: #3fb468;
+                text-align: center;
+                padding: 5px;
+                font-size: 22px;
+            }
+
+            #sto .evolution-item:not(._active) {
+                opacity: .5;
+            }
+
+            #sto .small {
+                font-size: 12px;
+            }
+        </style>
 	</section>
 
-	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
-	</section>
 
-	<section class="slide">
-		<h2>Inner navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
-	</section>
+
+
+
+
 
 
 	<footer class="badge">
